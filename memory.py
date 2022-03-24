@@ -11,11 +11,12 @@ Exercises:
 
 from random import *
 from turtle import *
+import string
 
 from freegames import path
 
 car = path('car.gif')
-tiles = list(range(32)) * 2
+tiles = list(map(chr, range(97, 129))) * 2
 state = {'mark': None}
 hide = [True] * 64
 clicks = 0
@@ -88,10 +89,11 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x+2, y)
-        color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
-    
+
+    goto(x+18, y+12)
+    color('blue')
+    write(tiles[mark], font=('Arial', 20, 'normal'))
+      
     goto(x+100, y+100)
     write(f"Number of clicks: {clicks}", font=('Arial', 10, 'normal'))
 
